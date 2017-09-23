@@ -1,4 +1,4 @@
-<% project_name = 'decision-maker-database' %>
+<% project_name = 'decision-maker-api' %>
 
 default: &default
   adapter: postgresql
