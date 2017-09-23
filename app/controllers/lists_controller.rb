@@ -1,4 +1,4 @@
-class ListsController < ApplicationController
+class ListsController < OpenReadController
   before_action :set_list, only: [:show, :update, :destroy]
 
   # GET /lists
@@ -18,7 +18,7 @@ class ListsController < ApplicationController
     @list = current_user.lists.build(list_params)
 
     if @list.save
-      render json: @list, status: :created, location: @list
+      render json: @list, status: :created
     else
       render json: @list.errors, status: :unprocessable_entity
     end
