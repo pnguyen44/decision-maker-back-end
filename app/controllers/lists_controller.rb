@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ListsController < OpenReadController
-  before_action :set_list, only: [:show, :update, :destroy]
+  before_action :set_list, only: [:update, :destroy]
 
   # GET /lists
   def index
@@ -10,7 +12,7 @@ class ListsController < OpenReadController
 
   # GET /lists/1
   def show
-    render json: @list
+    render json: List.find(params[:id])
   end
 
   # POST /lists
@@ -27,7 +29,8 @@ class ListsController < OpenReadController
   # PATCH/PUT /lists/1
   def update
     if @list.update(list_params)
-      render json: @list
+      # render json: @list
+      head :no_content
     else
       render json: @list.errors, status: :unprocessable_entity
     end
@@ -36,16 +39,18 @@ class ListsController < OpenReadController
   # DELETE /lists/1
   def destroy
     @list.destroy
+    head :no_content
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_list
-      @list = current_user.lists.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def list_params
-      params.require(:list).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_list
+    @list = current_user.lists.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def list_params
+    params.require(:list).permit(:name)
+  end
 end
