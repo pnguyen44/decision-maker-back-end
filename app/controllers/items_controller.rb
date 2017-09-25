@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ItemsController < OpenReadController
+class ItemsController < ProtectedController
   before_action :set_item, only: [:update, :destroy]
   # before_action :set_list, only: [:index]
 
