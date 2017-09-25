@@ -14,8 +14,14 @@
 #  validates_uniqueness_of :name
 # end
 
+# class List < ApplicationRecord
+#   belongs_to :user, inverse_of: :lists
+#   has_many :items, foreign_key: 'list_id'
+#   validates :name, :user, presence: true
+# end
+
 class List < ApplicationRecord
-  belongs_to :user, inverse_of: :lists
-  has_many :items, foreign_key: 'list_id'
+  belongs_to :user
+  has_many :items
   validates :name, :user, presence: true
 end
