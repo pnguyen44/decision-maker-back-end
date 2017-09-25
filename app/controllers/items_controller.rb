@@ -1,23 +1,23 @@
 # frozen_string_literal: true
 
-class ItemsController < OpenReadController
-  before_action :set_item, only: [:update, :destroy]
-  # before_action :set_list, only: [:index]
+class ItemsController < ProtectedController
+  before_action :set_item, only: [:show, :update, :destroy]
 
   # GET /items
   def index
-    @items = Item.all
+    # @items = Item.all
+    @items = current_user.items.all
     render json: @items
   end
 
   # GET /items/1
   def show
-    render json: Item.find(params[:id])
+    render json: @item
   end
-#
+
   # POST /items
   def create
-    @item = Item.new(item_params)
+    @item = current_user.items.build(item_params)
 
     if @item.save
       render json: @item, status: :created
@@ -46,7 +46,8 @@ class ItemsController < OpenReadController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_item
-    @item = Item.find(params[:id])
+    # @item = Item.find(params[:id])
+    @item = current_user.items.find(params[:id])
   end
 
   # def set_list
