@@ -1,9 +1,10 @@
 #!/bin/bash
 
-TOKEN='BAhJIiUxNDA4NDY2YmQyYTU5ZmUyZThmOGM0ZGFmMThlY2Q3OQY6BkVG--db51d1484b3039dedbcd9b7187ef6fbc0e3b660f'
+TOKEN='BAhJIiU0ZjgzNTZmMzE2OTE3OTIyZDkxZDVjMmFhYmQ2ZDZjOAY6BkVG--e100ac33ad5cc6337708f881286db1a806581067'
 ID=2
 
-API="${API_ORIGIN:-http://localhost:4741}"
+# API="${API_ORIGIN:-http://localhost:4741}"
+API="${API_ORIGIN:-https://the-decision-maker.herokuapp.com}"
 URL_PATH="/items/${ID}"
 curl "${API}${URL_PATH}" \
   --include \

@@ -1,14 +1,33 @@
 #!/bin/bash
-TOKEN='BAhJIiVmYmE4MjE0NjRkNDI1OWMxYzJhZDZmZjlhNmQ5NzM0NgY6BkVG--37b596edf7e26ffea051fbe574bccef79afe0432'
+TOKEN='BAhJIiU0ZjgzNTZmMzE2OTE3OTIyZDkxZDVjMmFhYmQ2ZDZjOAY6BkVG--e100ac33ad5cc6337708f881286db1a806581067'
 NAME='Heathy things to eat---'
 ID=2
-curl --include --request PATCH "http://localhost:4741/lists/${ID}" \
+
+# API="${API_ORIGIN:-http://localhost:4741}"
+API="${API_ORIGIN:-https://the-decision-maker.herokuapp.com}"
+URL_PATH="/lists/${ID}"
+curl "${API}${URL_PATH}" \
+  --include \
+  --request PATCH \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=$TOKEN" \
   --data '{
-  "list": {
-    "name": "'"${NAME}"'"
-  }
-}'
+    "list": {
+      "name": "'"${NAME}"'"
+    }
+  }'
 
 echo
+
+
+
+# curl --include --request PATCH "http://localhost:4741/lists/${ID}" \
+#   --header "Content-Type: application/json" \
+#   --header "Authorization: Token token=$TOKEN" \
+#   --data '{
+#   "list": {
+#     "name": "'"${NAME}"'"
+#   }
+# }'
+#
+# echo
