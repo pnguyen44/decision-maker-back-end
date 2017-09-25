@@ -1,18 +1,19 @@
 # frozen_string_literal: true
 
 class ListsController < ProtectedController
-  before_action :set_list, only: [:update, :destroy]
+  before_action :set_list, only: [:show, :update, :destroy]
 
   # GET /lists
   def index
     @lists = current_user.lists.all
+    # @lists = List.all
 
     render json: @lists
   end
 
   # GET /lists/1
   def show
-    render json: List.find(params[:id])
+    render json: @list
   end
 
   # POST /lists
