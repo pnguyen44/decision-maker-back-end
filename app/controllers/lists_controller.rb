@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-class ListsController < ProtectedController
+class ListsController < OpenReadController
   before_action :set_list, only: [:show, :update, :destroy]
 
   # GET /lists
   def index
-    @lists = current_user.lists.all
-    # @lists = List.all
+    # @lists = current_user.lists.all
+    @lists = List.all
 
     render json: @lists
   end
