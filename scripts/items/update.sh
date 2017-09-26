@@ -16,9 +16,9 @@ curl "${API}${URL_PATH}" \
   --header "Authorization: Token token=$TOKEN" \
   --data '{
     "item": {
+      "list_id": "'"${LIST_ID}"'",
       "name": "'"${NAME}"'",
-      "mark": "'"${MARK}"'",
-      "list_id": "'"${LIST_ID}"'"
+      "mark": "'"${MARK}"'"
     }
   }'
 
