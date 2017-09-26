@@ -1,9 +1,9 @@
 #!/bin/bash
-TOKEN='BAhJIiU0ZjgzNTZmMzE2OTE3OTIyZDkxZDVjMmFhYmQ2ZDZjOAY6BkVG--e100ac33ad5cc6337708f881286db1a806581067'
-NAME='Heathy things to eat update'
+TOKEN='BAhJIiVjYTdiYTVmNzlhMDhlNjg4ZWFiY2MxMmE2YTM0NjMwNQY6BkVG--b9cb9d37c4aae5aa333d571bc51f11ecc85c0e33'
+NAME='testing now'
 ID=4
 MARK='false'
-LIST_ID=2
+LIST_ID=1
 
 
 # API="${API_ORIGIN:-http://localhost:4741}"
