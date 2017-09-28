@@ -18,16 +18,3 @@ curl "${API}${URL_PATH}" \
   }'
 
 echo
-
-
-
-# curl --include --request PATCH "http://localhost:4741/lists/${ID}" \
-#   --header "Content-Type: application/json" \
-#   --header "Authorization: Token token=$TOKEN" \
-#   --data '{
-#   "list": {
-#     "name": "'"${NAME}"'"
-#   }
-# }'
-#
-# echo
